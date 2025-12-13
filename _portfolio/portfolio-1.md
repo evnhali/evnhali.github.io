@@ -31,21 +31,49 @@ I later found some excellent products on 3d printing sites that would have fit t
 
 # 2.  Generating and Analyzing an Original Solution
 
+Over the following weeks, we engaged in an iterative design process. 
+
+We began by ideating a range of functions that a product in the target scope could perform, and then developed a morphology chart describing several possible functional flows.
+
+<object data="/assets/portfolio-1-assets/function-morphology.pdf" width="1200" height="750" type='application/pdf'></object>
+
+We then selected some of the more promising candidate solutions and developed them further.
+
+<object data="/assets/portfolio-1-assets/function-analysis.pdf" width="1200" height="750" type='application/pdf'></object>
+
+We shared some of our design concepts with our classmates and requested feedback.
+
+<object data="/assets/portfolio-1-assets/me382-design-review.pdf" width="1200" height="750" type='application/pdf'></object>
+
+![design review request](/assets/portfolio-1-assets/design-review-request.png)
+
+![design review feedback](/assets/portfolio-1-assets/design-review-feedback.png)
+
+The expectation for this portfolio is that we should present a clear analytical justification of our design choices. I can't do that because I don't think I chose the best design. I don't even think I chose a good design. I was exhausted and overwhelmed, so I picked designs that I knew I could model and that satisfied my tier 1 stakeholder requirements.
+
+My chosen solution uses a lever-actuated button to handle the input of a rising helium balloon, which activates a motor that drives a linear actuator to make contact with the next module and deliver a regulated 12V voltage as an output. In order to make the design visually interesting, I used a 3d-printed two-stage reduction gear assembly to transfer power from the motor to the linear actuator.
+
 # 3.  Detailed Design, Prototyping, and Simulation
-## 1. [Final Engineering Drawings](/assets/portfolio-1-assets/final-drawings.pdf)
+## a. [Final Engineering Drawings](/assets/portfolio-1-assets/final-drawings.pdf)
 <object data="/assets/portfolio-1-assets/final-drawings.pdf" width="1200" height="750" type='application/pdf'></object>
-The final design includes 19 custom mechanical components, 17 of which are designed to use 3d printing as their primary production process. 16 are FDM and one is SLS.
+The final design includes 19 custom mechanical components, 17 of which are designed to use 3d printing as their primary production process. 16 are FDM and one is metal SLS.
 
 Of the remaining two, one is designed to be prototyped on a resin printer and then injection molded, and the other is designed to be 3d printed and then sand cast in bronze.
-## 2. [Mechanical Simulation Video](https://1drv.ms/v/c/515053d450ede5d2/IQD6dU_WN3qYSr5FDBlTOuzgATTtWnJXm8XzXTEnI2pQe1k?e=zaewvE)
+## b. [Mechanical Simulation Video](https://1drv.ms/v/c/515053d450ede5d2/IQD6dU_WN3qYSr5FDBlTOuzgATTtWnJXm8XzXTEnI2pQe1k?e=zaewvE)
 <video controls width="100%">
     <source src="https://1drv.ms/v/c/515053d450ede5d2/IQT6dU_WN3qYSr5FDBlTOuzgAaiuY21RP6GqYWiGlo-GEYI?width=2880&height=2160" type="video/mp4">
 </video>
 
-## 3. [Mechatronics Schematic](/assets/portfolio-1-assets/me382-circuit-schematic.svg)
+## c. [Mechatronics Schematic](/assets/portfolio-1-assets/me382-circuit-schematic.svg)
 ![schematic](/assets/portfolio-1-assets/me382-circuit-schematic.png)
 
-## 4. Mechatronics Simulation
+A 4S LiPo battery powers a voltage regulator, which delivers a regulated 12V voltage to the rest of the circuit. The lever-actuated switch and each of the two pogo pins are modeled as momentary switches.
+
+A DPST normally-open relay closes when the input switch has been pressed. This delivers power to (1) the motor and (2) the relay itself, keeping it open even if the input switch is released.
+
+A DPDT relay switches when the output connection makes contact. This (1) turns off the motor and (2) delivers power to the relay, keeping it switched even if the output connection is broken.
+
+## d. Mechatronics Simulation
 ### Simulation 1: Ideal Scenario
  In the ideal scenario, the input switch is triggered after 3 seconds and remains depressed for the duration of the trial. The output connection makes contact after 30 seconds and the circuit remains live indefinitely.
 ![Simulation 1 voltage](/assets/portfolio-1-assets/volt-sim-simple.png)
@@ -64,7 +92,18 @@ The results show that the motor remains powered until the output connection make
 ![Simulation 2 current](/assets/portfolio-1-assets/current-sim.png)
 The results show that the motor remains powered until the output connection makes contact for the first time, then turns off and remains off. Power remains available to the output as it connects and disconnects at will. The relays work as intended to keep the connections in their expected states.
 
-## 5. [Hand calculations for lever force](/assets/portfolio-1-assets/lever-calcs.pdf)
+## e. [Hand calculations for lever force](/assets/portfolio-1-assets/lever-calcs.pdf)
 <object data="/assets/portfolio-1-assets/lever-calcs.pdf" width="1200" height="750" type='application/pdf'></object>
 
 # 4.  Evaluation, Reflection, and Recommendations
+
+## a. External Evaluation
+
+I received structured feedback from stakeholders at two points during the project:
+
+  - [Feedback from the Design Review for Convergence](/assets/portfolio-1-assets/design-review-feedback.png)
+    ![Feedback from the Design Review for Convergence](/assets/portfolio-1-assets/design-review-feedback.png)
+    The feedback here was surprisingly positive. The main concern was a request for more detail on the third design concept. I chose not to use that concept, and instead selected the one that got the more positive response.
+  - [Feedback from the Final Review](/assets/portfolio-1-assets/final-review-feedback.png)
+    ![Feedback from the Final Review](/assets/portfolio-1-assets/final-review-feedback.png)
+    This feedback was also quite positive. The only critique was that the scale on the image I chose to present was unclear. I believe I've addressed that here by providing a full set of engineering drawings in addition to the glamour shots.
