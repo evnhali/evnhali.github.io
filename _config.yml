@@ -13,7 +13,7 @@ title                    : "Evan's Workshop"
 title_separator          : "-"
 name                     : &name "Evan Haliburton"
 description              : &description "Evan Haliburton's engineering portfolio"   # Update this with a general description of your site, this is the default if not overridden by a page
-url                      : http://ehali.net # The base hostname & protocol for your site e.g. "https://[your GitHub username].github.io",
+url                      : https://evanhaliburton.github.io # The base hostname & protocol for your site e.g. "https://[your GitHub username].github.io",
                                                            # or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
 baseurl                  : "" # t.he subpath of your site, e.g. "/blog"
 repository               : "evanhaliburton/evanhaliburton.github.io"
